@@ -3,10 +3,11 @@ from django.template.defaultfilters import slugify
 
 
 class Autor(models.Model):
+    email = models.EmailField("Email", blank=True)
     nombre = models.CharField('nombre', blank=True, max_length=20)
-    foto_perfil = models.ImageField(upload_to='uploads/', default='pic_folder/None/no-img.jpg')
-    slug = models.SlugField(editable=False)
-    biografia = models.TextField('biografia')
+    # foto_perfil = models.ImageField(upload_to='uploads/', default='pic_folder/None/no-img.jpg')
+    # slug = models.SlugField(editable=False)
+    # biografia = models.TextField('biografia')
 
     def __str__(self):
         return self.nombre
@@ -24,9 +25,9 @@ class Publicacion(models.Model):
     fk_autor = models.ForeignKey(Autor, related_name='autor_publicacion', verbose_name='seleccione Autor')
     titulo = models.CharField('titulo', max_length=20)
     slug = models.SlugField(editable=False)
-    foto = models.ImageField(upload_to='uploads/', default='pic_folder/None/no-img.jpg', blank=True)
+    foto = models.ImageField(upload_to='uploads/', blank=True)
     contenido = models.TextField('contenido')
-    fecha = models.DateTimeField(auto_now=True)
+    fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.titulo
@@ -43,7 +44,7 @@ class Publicacion(models.Model):
 class Comentario(models.Model):
     fk_publicacion = models.ForeignKey(Publicacion, related_name='publicacion_comentario', verbose_name='selecciona Publicacion')
     coment = models.TextField('coment')
-    fecha = models.DateTimeField(auto_now=True)
+    fecha = models.DateTimeField(auto_now_add=True)
     usuario = models.CharField('usuario', max_length=25)
 
     def __str__(self):
