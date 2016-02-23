@@ -36,6 +36,11 @@ class Publicacion(models.Model):
         verbose_name = u'Publicacion'
         verbose_name_plural = u'Publicaciones'
 
+    def contenido_trunc(self):
+        if self.contenido > 80:
+            return self.contenido[1:80] + "...."
+        return self.contenido
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.titulo)
         super(Publicacion, self).save(*args, **kwargs)

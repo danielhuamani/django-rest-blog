@@ -3,7 +3,7 @@ from .models import Autor, Publicacion, Comentario
 
 
 class ComentarioSerializer(serializers.ModelSerializer):
-
+    # RelatedField(source='fk_publicacion', read_only=True)
     class Meta:
         model = Comentario
         # fields = ('coment', 'fecha', 'usuario')
@@ -17,10 +17,10 @@ class AutorSerializer(serializers.ModelSerializer):
 
 
 class PublicacionSerializer(serializers.ModelSerializer):
-    # publicacion_comentario = ComentarioSerializer(many=True)
 
-    # autor_publicacion = serializers.HyperlinkedRelatedField(many=True, read_only=True, view_name='blog:autor-detail')
+    contenido_truncado = serializers.CharField(source='contenido_trunc')
+
     class Meta:
         model = Publicacion
-        fields = ('fk_autor', 'titulo', 'slug', 'foto', 'contenido', 'fecha', 'id', 'publicacion_comentario',)
+        fields = ('fk_autor', 'titulo', 'slug', 'foto', 'contenido', 'fecha', 'id', 'publicacion_comentario', 'contenido_truncado')
         depth = 1
