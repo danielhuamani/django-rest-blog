@@ -1,8 +1,15 @@
 var publicacionColeccion = Backbone.Collection.extend({
 	model: publicacionModel,
-	url: 'localhost:8000/api/publicaciones/'
-})
+	url: 'http://104.236.245.239/api/publicaciones/',
+	ordenar:'id',
 
-var publicacion = new publicacionColeccion()
+	comparator:function(item){
+		return item.get(this.ordernar);
+	}
 
-publicacion.fetch();
+});
+
+var publicacionTodas = new publicacionColeccion()
+
+/*publicacion.fetch();
+*/

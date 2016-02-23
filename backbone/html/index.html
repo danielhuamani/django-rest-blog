@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-    <body>
+    <body id="app">
 
         <header class="navbar-fixed">
              <nav class="">
@@ -26,49 +26,38 @@
 
         </header>
         <section>
-            <div class="row">
-                <div class="col s12 m6">
-                  <div class="card ">
-                    <div class="card-image">
-                      <img src="../img/170px-PHP-logo.svg.png">
+            <div class="row" id="mostrarPublicacion">
 
-                    </div>
-                    <div class="card-content">
-                      <h5>TITULO</h5>
-                      <p>I am aFSFD FSFSD </p>
-                    </div>
-                    <div class="card-action">
-                      <a href="./publicacion-detalle.html">Ver mas</a>
-                    </div>
-                  </div>
-                </div>
 
-              <div class="col s12 m6">
-                  <div class="card ">
-                    <div class="card-image">
-                      <img src="../img/11168896_919321674790046_5463026141240799314_n.jpg" height="200" width="100">
 
-                    </div>
-                    <div class="card-content">
-                      <h5>TITULO</h5>
-                      <p>I am a very simple card. I am good at containi</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="./publicacion-detalle.html">Ver mas</a>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
         </section>
 
+      <script type="text/template" id="templatePublicacion">
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-image">
+              <img src="<%= foto %>" height="200" width="100">
 
+            </div>
+            <div class="card-content">
+              <h5><%= titulo %></h5>
+              <p><%= contenido %></p>
+            </div>
+            <div class="card-action">
+              <a href="./publicacion-detalle.html">Ver mas</a>
+            </div>
+          </div>
+        </div>
+      </script>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="../js/underscore.js"></script>
       <script type="text/javascript" src="../js/backbone.js"></script>
       <script type="text/javascript" src="../app/models.js"></script>
       <script type="text/javascript" src="../app/colecciones.js"></script>
+      <script type="text/javascript" src="../app/vistas.js"></script>
       <script type="text/javascript" src="../js/materialize.min.js"></script>
     </body>
   </html>
