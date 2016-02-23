@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body id="app">
+
+        <header class="navbar-fixed">
+             <nav class="">
+                <div class="nav-wrapper">
+
+                  <ul class="">
+                    <li class="left"><a href="sass.html"><i class="material-icons">replay</i></a></li>
+                    <li class="right"> <a href="badges.html">PUBLICAR</a></li>
+
+                  </ul>
+                </div>
+              </nav>
+
+        </header>
+        <section>
+            <div class="row" id="mostrarPublicacion">
+
+
+
+              </div>
+            </div>
+        </section>
+
+      <script type="text/template" id="templatePublicacion">
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-image">
+              <img src="<%= foto %>" height="200" width="100">
+
+            </div>
+            <div class="card-content">
+              <h5><%= titulo %></h5>
+              <p><%= contenido %></p>
+            </div>
+            <div class="card-action">
+              <a href="./publicacion-detalle.html">Ver mas</a>
+            </div>
+          </div>
+        </div>
+      </script>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../js/underscore.js"></script>
+      <script type="text/javascript" src="../js/backbone.js"></script>
+      <script type="text/javascript" src="../app/models.js"></script>
+      <script type="text/javascript" src="../app/colecciones.js"></script>
+      <script type="text/javascript" src="../app/vistas.js"></script>
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+    </body>
+  </html>
+
