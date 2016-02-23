@@ -18,4 +18,21 @@ var mostrarPublicacion = Backbone.View.extend({
 	}
 });
 
+var detallePublicacion = Backbone.View.extend({
+	template: _.template($("#templatePublicacionDetalle").html()),
+	events:{
+		'click .btn-ver-mas': 'verDetalle',
+	},
+	render: function(){
+		this.$el.html(this.template(this.model.toJSON()));
+		return this;
+	},
+	verDetalle:function(){
+		$("#mostrarPublicacion").html();
+		this.model.fecht();
+		var detallepublicacion = new detallePublicacion({model:this.model})
+		$("#mostrarPublicacion").append(detallepublicacion.render().$el)
+	}
+})
+
 var appView = new publicacionesView();

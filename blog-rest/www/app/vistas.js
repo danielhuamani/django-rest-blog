@@ -5,6 +5,7 @@ var publicacionesView = Backbone.View.extend({
 		publicacionTodas.fetch();
 	},
 	onAgregarPublicacion: function(modelo, collection, options){
+		console.log(modelo);
 		var publicacion = new mostrarPublicacion({model: modelo});
 		$("#mostrarPublicacion").append(publicacion.render().$el)
 	}

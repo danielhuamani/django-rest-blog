@@ -26,16 +26,17 @@
 
         </header>
         <section>
+
             <div class="row" id="mostrarPublicacion">
 
 
 
-              </div>
+
             </div>
         </section>
 
       <script type="text/template" id="templatePublicacion">
-        <div class="col s12 m6">
+        <div class="col s12 m6" id="publicacion">
           <div class="card ">
             <div class="card-image">
               <img src="<%= foto %>" height="200" width="100">
@@ -46,10 +47,25 @@
               <p><%= contenido %></p>
             </div>
             <div class="card-action">
-              <a href="./publicacion-detalle.html">Ver mas</a>
+              <a class="btn-ver-mas">ver mas </a>
             </div>
           </div>
         </div>
+      </script>
+      <script type="text/template" id="templatePublicacionDetalle">
+          <div class="col s12 m6" id="publicacion_detalle">
+            <div class="card ">
+              <div class="card-image">
+                <img src="<%= foto %>" height="200" width="100">
+
+              </div>
+              <div class="card-content">
+                <h5><%= titulo %></h5>
+                <p><%= contenido %></p>
+              </div>
+
+            </div>
+          </div>
       </script>
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
