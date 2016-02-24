@@ -1,18 +1,18 @@
 var app = app || {};
 var publicacionColeccion = Backbone.Collection.extend({
 	model: publicacionModel,
-	url: 'http://127.0.0.1:8000/api/publicaciones/',
+	url: 'http://104.236.245.239/api/publicaciones/',
 	ordenar:'id',
 
 	comparator:function(item){
-		return item.get(this.ordernar);
+		return -item.get(this.ordernar);
 	}
 
 });
 
 var publicarColeccion = Backbone.Collection.extend({
 	model: publicarModel,
-	url: 'http://127.0.0.1:8000/api/autores/',
+	url: 'http://104.236.245.239/api/autores/',
 	ordenar:'id',
 
 	comparator:function(item){

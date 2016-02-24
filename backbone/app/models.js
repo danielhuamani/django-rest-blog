@@ -1,5 +1,5 @@
 var publicacionModel = Backbone.Model.extend({
-	urlRoot: 'http://127.0.0.1:8000/api/publicaciones/',
+	urlRoot: 'http://104.236.245.239/api/publicaciones/',
 	defaults: {
 		titulo: "",
         foto: "",
@@ -20,6 +20,6 @@ var publicacionModel = Backbone.Model.extend({
 
 
 var publicarModel = Backbone.Model.extend({
-	urlRoot: 'http://127.0.0.1:8000/api/autores/',
+	urlRoot: 'http://104.236.245.239/api/autores/',
 
 });

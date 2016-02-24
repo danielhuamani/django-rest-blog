@@ -75,13 +75,13 @@ var detallePublicacion = Backbone.View.extend({
         $("#cnt-comentario").html("")
         window.idPublicacion = this.model.get("id");
         var comentarioModel = Backbone.Model.extend({
-            urlRoot: "http://127.0.0.1:8000/api/comentarios/"
+            urlRoot: "http://104.236.245.239/api/comentarios/"
 
         })
         /*window.idPublicacion,*/
         var comentarioColeccion = Backbone.Collection.extend({
             model: comentarioModel,
-            url: "http://127.0.0.1:8000/api/comentarios/"
+            url: "http://104.236.245.239/api/comentarios/"
         })
         $(".cnt-mostrarComentarios").css("display", "block")
         app.comentarioTodos = new comentarioColeccion();
