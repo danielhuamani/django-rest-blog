@@ -5,6 +5,7 @@ var publicacionModel = Backbone.Model.extend({
         foto: "",
         contenido: "",
         fecha: "",
+        fecha_cort: "",
 
 	},
 	initialize: function(){
