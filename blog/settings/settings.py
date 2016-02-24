@@ -60,7 +60,24 @@ CORS_ORIGIN_WHITELIST = (
         'google.com',
         '127.0.0.1'
     )
+# CORS_ALLOW_METHODS = (
+#         'GET',
+#         'POST',
+#         'PUT',
+#         'PATCH',
+#         'DELETE',
+#         'OPTIONS'
+# )
 
+# CORS_ALLOW_HEADERS = (
+#         'Access-Control-Allow-Origin',
+#         'x-requested-with',
+#         'content-type',
+#         'accept',
+#         'origin',
+#         'authorization',
+#         'x-csrftoken'
+# )
 ROOT_URLCONF = 'settings.urls'
 
 TEMPLATES = [
@@ -80,15 +97,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'settings.wsgi.application'
-
 REST_FRAMEWORK = {
+
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-        # 'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
+    # Make the default renderer class JSON when in production to prevent users from using the browsable API
+
+
 }
+
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 

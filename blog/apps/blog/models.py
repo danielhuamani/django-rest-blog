@@ -58,3 +58,7 @@ class Comentario(models.Model):
     class Meta:
         verbose_name = u'Comentario'
         verbose_name_plural = u'Comentarios'
+
+    def fecha_corta(self):
+        print self.fecha
+        return self.fecha.strftime("%m/%d/ %Y")

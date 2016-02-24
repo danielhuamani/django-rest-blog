@@ -17,7 +17,7 @@
         .titulo-cnt{
           overflow: hidden;
         }
-        .volver-atras{
+        .volver-atras, .publicar{
           padding: 0 15px;
           cursor:pointer;
         }
@@ -31,8 +31,8 @@
                 <div class="nav-wrapper">
 
                   <ul class="">
-                    <li class="left volver-atras"><span class="" ><i class="material-icons ">replay</i></span></li>
-                    <li class="right"> <a href="badges.html">PUBLICAR</a></li>
+                    <li class="left volver-atras"><span class="" >Inicio</span></li>
+                    <li class="right publicar"> <span class="" >PUBLICAR</span></li>
 
                   </ul>
                 </div>
@@ -47,26 +47,65 @@
 
 
             </div>
-            <div class="row">
+            <div class="row cnt-mostrarComentarios" style="display:none">
               <div class="col s12 m6 collection" id="mostrarComentarios">
 
               </div>
             </div>
             <div class="row">
 
-              <form class="col s12 form-comentario" style="display:none;">
+              <div class="col s12 form-comentario" style="display:none;">
                 <div class="row card" style="padding-bottom:10px;">
                    <div class="input-field col s12">
 
-                    <input id="icon_prefix" type="text" class="validate">
+                    <input id="icon_prefix" type="text" name="usuario" class="validate usuario">
                     <label for="icon_prefix">Usuario</label>
                   </div>
                   <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <textarea id="textarea1" class="materialize-textarea comentario"></textarea>
                     <label for="textarea1">Comentario</label>
                   </div>
                   <div clasS="col s12 pdb-20">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                      <button class="btn waves-effect waves-light btn-form" type="submit" name="action">Enviar
+                    <i class="material-icons right">send</i>
+                  </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row fom-agregar-autor" style="display:none">
+
+              <form action="http://127.0.0.1:8000/autor" method="POST" class="col s12 form-autor" enctype="multipart/form-data">
+                <div class="row card" style="padding-bottom:10px;">
+                   <div class="input-field col s12">
+
+                    <input id="icon_prefix" type="text" name="email" class="validate email">
+                    <label for="icon_prefix">Email</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input id="icon_prefix" type="text" name="nombre" class="validate nombre">
+                    <label for="icon_prefix">Nombre</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <input id="icon_prefix" type="text" name="titulo" class="validate titulo">
+                    <label for="icon_prefix">titulo</label>
+                  </div>
+                  <div class="input-field col s12">
+                    <textarea id="textarea1" name="contenido" class="materialize-textarea contenido"></textarea>
+                    <label for="textarea1">contenido</label>
+                  </div>
+                  <div class="file-field input-field col s12">
+                    <div class="btn">
+                      <span>Imagen</span>
+                      <input type="file" name="foto">
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text">
+                    </div>
+                  </div>
+                  <div clasS="col s12 pdb-20">
+                      <button class="btn waves-effect waves-light btn-form-autor" type="submit" name="action">Enviar
                     <i class="material-icons right">send</i>
                   </button>
                   </div>
@@ -80,7 +119,7 @@
         <div class="col s12 m6" id="publicacion">
           <div class="card ">
             <div class="card-image">
-              <img src="http://104.236.245.239<%= foto %>" height="200" width="100">
+              <img src="<%= foto %>" height="200" width="100">
 
             </div>
             <div class="card-content">
@@ -99,7 +138,7 @@
           <div class="col s12 m6" id="publicacion_detalle">
             <div class="card ">
               <div class="card-image">
-                <img src="http://104.236.245.239<%= foto %>" height="200" width="100">
+                <img src="<%= foto %>" height="200" width="100">
               </div>
               <div class="card-content">
                 <h5 class=""><%= titulo %></h5>
@@ -112,14 +151,14 @@
           <div class="collection-item">
             <div>
                 <span class="title"><%= usuario %></span>
-                <span class="right"> 12/12/12</span>
+                <span class="right"> <%= fecha_cort %></span>
             </div>
             <p><%= coment %>
             </p>
 
           </div>
       </script>
-      <!--Import jQuery before materialize.js-->
+
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="../js/underscore.js"></script>
       <script type="text/javascript" src="../js/backbone.js"></script>
@@ -127,8 +166,25 @@
       <script type="text/javascript" src="../app/colecciones.js"></script>
       <script type="text/javascript" src="../app/vistas.js"></script>
       <script type="text/javascript" src="../js/materialize.min.js"></script>
+      <script type="text/javascript" src="../js/crfs.js"></script>
+      <script type="text/javascript" src="../js/jquery.form.js"></script>
       <script>
+
         window.idPublicacion = ""
+        $(function() {
+          var url_actual = window.location.href;
+          $(".form-autor").ajaxForm(function(event) {
+            /* Act on the event */
+
+            window.location.href = url_actual;
+
+
+          });
+          $(".volver-atras").click(function(event) {
+            /* Act on the event */
+            window.location.href = url_actual;
+          });
+        });
       </script>
     </body>
   </html>
