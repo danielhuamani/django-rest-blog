@@ -21,7 +21,10 @@ class PublicacionSerializer(serializers.ModelSerializer):
 class ComentarioSerializer(serializers.ModelSerializer):
     # RelatedField(source='fk_publicacion', read_only=True)
     # fk_publicacion = PubliSerializer()
-    fecha_cort = serializers.CharField(source="fecha_corta")
+    fecha_cort = serializers.SerializerMethodField("fecha_corta")
+
+    def fecha_corta(self, comentario):
+        return comentario.fecha.strftime("%m/%d/%Y")
 
     class Meta:
         model = Comentario
