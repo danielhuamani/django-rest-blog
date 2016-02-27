@@ -5,6 +5,7 @@ var publicacionModel = Backbone.Model.extend({
         foto: "",
         contenido: "",
         fecha: "",
+        fecha_cort: "",
 
 	},
 	initialize: function(){
@@ -16,4 +17,10 @@ var publicacionModel = Backbone.Model.extend({
 		var fecha = new Date(model.get('fecha'));
 		model.set({fecha:fecha.toString()});
 	}
+});
+
+
+var publicarModel = Backbone.Model.extend({
+	urlRoot: 'http://104.236.245.239/api/autores/',
+
 });
